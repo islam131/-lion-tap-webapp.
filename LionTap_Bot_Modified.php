@@ -2,7 +2,7 @@
 $BOT_TOKEN = "7938535675:AAHrpwModbDDqCC7bWndPnMtI2wnShZ0zWk";
 $ADMIN_ID = "6991944640";
 $CHANNEL_ID = "@USDTxxClickrBot";
-$WEB_APP_URL = "https://your-vercel-url.vercel.app"; // ← ضع هنا رابط Vercel بعد رفع صفحة HTML
+$WEB_APP_URL = "https://lion-tap-webapp-xc68-git-main-islams-projects-7bfa04c4.vercel.app"; // ← ضع هنا رابط Vercel بعد رفع صفحة HTML
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
