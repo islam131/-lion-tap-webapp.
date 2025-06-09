@@ -1,11 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lion Tap Mini App</title>
-  </head>
-  <body>
-    <h1>مرحبًا بك في Lion Tap Mini App 🎉</h1>
-    <p>الواجهة تعمل بنجاح! الآن يمكنك ربطها مع البوت.</p>
-  </body>
-</html>
+<?php
+// Telegram Bot Webhook for Vercel
+
+// تأكيد أن الطلب قادم من Telegram
+header("Content-Type: text/plain");
+
+// قراءة البيانات المرسلة من Telegram
+$update = json_decode(file_get_contents("php://input"), true);
+
+if (!$update) {
+    echo "❌ فشل قراءة البيانات.";
+    exit;
+}
+
+if (isset($update["message"])) {
+    $chat_id = $update["message"]["chat"]["id"];
+    $text = $update["message"]["text"];
+
+    $token = "7938535675:AAHrpwModbDDqCC7bWndPnMtI2wnShZ0zWk";
+    $url = "https://api.telegram.org/bot$token/sendMessage";
+
+    $reply = [
+        "chat_id" => $chat_id,
+        "text" => "📨 استلمت رسالتك: $text"
+    ];
+
+    // إرسال الرد
+    file_get_contents($url . "?" . http_build_query($reply));
+
+    echo "✅ تم إرسال الرد.";
+} else {
+    echo "⚠️ لا توجد رسالة.";
+}
